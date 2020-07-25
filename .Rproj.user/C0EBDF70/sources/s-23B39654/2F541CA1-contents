@@ -1,0 +1,46 @@
+---
+title: "Developing Data Products Leaflet Assignment"
+author: "Shubhendu Dash"
+date: "25/07/2020"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, echo=TRUE, cache=TRUE, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Introduction
+This project was created as part of the Developing Data Products course of the Coursera Data Science Specialization. The goal of the project is to create a web page using R Markdown that features a map created with Leaflet, and to host the resulting web page on either GitHub Pages, RPubs, or NeoCities.
+
+# Summary
+This webpage was created in markdown using leaflet for mapping. It was created under the following guidelines:
+
+- Create a webpage using R Markdown that features a map created with Leaflet.
+- Host the webpage on either GitHub Pages, RPubs, or NeoCities.
+- The webpage must contain the date it was created, and it must contain a map created with Leaflet.
+
+# The Map
+Loading the required packages.
+
+```{r}
+#install.packages("leaflet") - commented this out in order to publish to HTML correctly. If running as a chunk of a code, leave this line in. 
+library(leaflet)
+```
+
+Then we create the map showing India's top 5 polluted cities 2019 (PM2.5) 
+The most polluted cities according to data aggregated from over 60,000 data points.[Check here for the Data.](https://www.iqair.com/us/world-most-polluted-cities?continent=59af92b13e70001c1bd78e53&country=SPLi4goKT3JDgP4Mm&state=&page=1&perPage=50&cities=)
+
+```{r}
+leaflet() %>%
+addTiles() %>%
+addMarkers(lat = 28.669081, lng = 77.430412, popup = "1-Ghaziabad, India") %>%
+addMarkers(lat = 28.704060, lng = 77.102493, popup = "2-Delhi, India") %>%
+addMarkers(lat = 28.535517, lng = 77.391029, popup = "3-Noida, India") %>%
+addMarkers(lat = 28.459497, lng = 77.026634, popup = "4-Gurugram, India") %>%
+addMarkers(lat =28.447720, lng = 77.524567, popup = "5-Greater Noida, India")
+```
+
+
+
